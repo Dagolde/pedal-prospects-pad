@@ -11,7 +11,7 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
         <div className="container mx-auto px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={myRiderLogo} alt="MyRider" className="h-8 w-auto" width={512} height={512} />
+            <span className="font-display text-sm font-bold text-primary">MyRider</span>
             <span className="font-display text-sm text-foreground tracking-wider hidden sm:inline">× Japamove × NovaVolt</span>
           </div>
           <a
