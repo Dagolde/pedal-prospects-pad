@@ -2,7 +2,7 @@ import HeroSection from "@/components/HeroSection";
 import PlansSection from "@/components/PlansSection";
 import WhyInvestSection from "@/components/WhyInvestSection";
 import CTASection from "@/components/CTASection";
-import myRiderLogo from "@/assets/myrider-logo.png";
+
 
 const Index = () => {
   return (
