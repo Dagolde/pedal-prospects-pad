@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Zap, ArrowRight, Shield, Clock, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import myRiderLogo from "@/assets/myrider-logo.png";
+
 
 const stats = [
   { icon: <TrendingUp className="w-5 h-5" />, label: "Up to 80% ROI" },
@@ -73,7 +73,7 @@ const CTASection = () => {
               <span className="text-muted-foreground/30">×</span>
               <span className="font-display text-sm text-muted-foreground tracking-wider">NovaVolt</span>
               <span className="text-muted-foreground/30">×</span>
-              <img src={myRiderLogo} alt="MyRider" className="h-6 w-auto opacity-70" loading="lazy" width={512} height={512} />
+              <span className="font-display text-sm text-muted-foreground tracking-wider">MyRider</span>
             </div>
           </div>
         </motion.div>
