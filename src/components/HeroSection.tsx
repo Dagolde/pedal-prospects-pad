@@ -53,7 +53,7 @@ const HeroSection = () => {
               NovaVolt Energy
             </span>
             <Zap className="w-5 h-5 text-primary" />
-            <img src={myRiderLogo} alt="MyRider" className="h-8 w-auto" width={512} height={512} />
+            <span className="font-display text-sm tracking-[0.3em] text-primary uppercase">MyRider</span>
           </motion.div>
 
           {/* Badge */}

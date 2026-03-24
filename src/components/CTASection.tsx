@@ -73,7 +73,7 @@ const CTASection = () => {
               <span className="text-muted-foreground/30">×</span>
               <span className="font-display text-sm text-muted-foreground tracking-wider">NovaVolt</span>
               <span className="text-muted-foreground/30">×</span>
-              <img src={myRiderLogo} alt="MyRider" className="h-6 w-auto opacity-70" loading="lazy" width={512} height={512} />
+              <span className="font-display text-sm text-muted-foreground tracking-wider">MyRider</span>
             </div>
           </div>
         </motion.div>

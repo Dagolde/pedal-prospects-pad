@@ -32,7 +32,7 @@ const Index = () => {
 
       <footer className="border-t border-border py-8 text-center space-y-2">
         <div className="flex items-center justify-center gap-2">
-          <img src={myRiderLogo} alt="MyRider" className="h-5 w-auto opacity-60" loading="lazy" width={512} height={512} />
+          <span className="font-display text-sm text-muted-foreground">MyRider</span>
         </div>
         <p className="font-body text-sm text-muted-foreground">
           © 2026 Japamove Logistics × NovaVolt Energy × MyRider. All rights reserved.
