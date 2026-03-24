@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Zap, ArrowRight, Shield, Clock, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import myRiderLogo from "@/assets/myrider-logo.png";
+
 
 const stats = [
   { icon: <TrendingUp className="w-5 h-5" />, label: "Up to 80% ROI" },
