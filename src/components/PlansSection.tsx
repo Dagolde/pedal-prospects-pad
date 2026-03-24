@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Clock, DollarSign, ArrowDown } from "lucide-react";
+import { TrendingUp, Clock, DollarSign, ArrowDown, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface PlanCardProps {
@@ -13,6 +13,7 @@ interface PlanCardProps {
   totalReturn: string;
   weeklyPayout: string;
   accent: "green" | "gold";
+  popular?: boolean;
   delay?: number;
 }
 
@@ -27,6 +28,7 @@ const PlanCard = ({
   totalReturn,
   weeklyPayout,
   accent,
+  popular = false,
   delay = 0,
 }: PlanCardProps) => {
   const isGold = accent === "gold";
@@ -37,8 +39,17 @@ const PlanCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
+      whileHover={{ y: -8, transition: { duration: 0.3 } }}
       className={`relative rounded-2xl p-[1px] ${isGold ? "border-glow-gold" : "border-glow-green"}`}
     >
+      {popular && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <span className="inline-flex items-center gap-1.5 px-5 py-1.5 rounded-full bg-secondary text-secondary-foreground font-heading font-bold text-sm tracking-wider">
+            <Sparkles className="w-4 h-4" />
+            MOST POPULAR
+          </span>
+        </div>
+      )}
       <div className={`rounded-2xl p-8 ${isGold ? "gradient-card-gold" : "gradient-card-green"} h-full`}>
         {/* Header */}
         <div className="text-center mb-8">
@@ -52,30 +63,38 @@ const PlanCard = ({
           </span>
         </div>
 
+        {/* Investment Amount - Highlighted */}
+        <div className={`text-center mb-6 p-4 rounded-xl ${isGold ? "bg-secondary/5" : "bg-primary/5"}`}>
+          <p className="text-xs font-heading text-muted-foreground uppercase tracking-wider mb-1">Investment Amount</p>
+          <p className={`font-display text-4xl font-black ${isGold ? "text-secondary text-glow-gold" : "text-primary text-glow-green"}`}>
+            {investment}
+          </p>
+        </div>
+
         {/* Details */}
         <div className="space-y-4 mb-8">
-          <DetailRow icon={<DollarSign />} label="Investment" value={investment} accent={accent} />
           <DetailRow icon={<Clock />} label="Duration" value={duration} accent={accent} />
           <p className="text-muted-foreground text-sm text-center font-body">{durationDetail}</p>
 
           {/* ROI Badge */}
           <div className="flex justify-center py-2">
-            <div
-              className={`px-6 py-3 rounded-xl text-center ${
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className={`px-8 py-4 rounded-xl text-center ${
                 isGold ? "bg-secondary/15 border-glow-gold" : "bg-primary/15 border-glow-green"
               }`}
             >
-              <p className="text-xs font-heading text-muted-foreground uppercase tracking-wider">ROI</p>
-              <p className={`font-display text-3xl font-black ${isGold ? "text-secondary text-glow-gold" : "text-primary text-glow-green"}`}>
+              <p className="text-xs font-heading text-muted-foreground uppercase tracking-wider">Return on Investment</p>
+              <p className={`font-display text-4xl font-black ${isGold ? "text-secondary text-glow-gold" : "text-primary text-glow-green"}`}>
                 {roi}
               </p>
-            </div>
+            </motion.div>
           </div>
 
           <ArrowDown className={`mx-auto w-5 h-5 ${isGold ? "text-secondary" : "text-primary"} animate-float`} />
 
           <DetailRow icon={<TrendingUp />} label="Total Profit" value={totalProfit} accent={accent} />
-          <DetailRow icon={<TrendingUp />} label="Total Return" value={totalReturn} accent={accent} />
+          <DetailRow icon={<DollarSign />} label="Total Return" value={totalReturn} accent={accent} />
         </div>
 
         {/* Weekly Payout */}
@@ -86,9 +105,19 @@ const PlanCard = ({
           </p>
         </div>
 
+        {/* Benefits */}
+        <div className="mt-6 space-y-2">
+          {["Professional riders & management", "Battery swap & maintenance", "Weekly guaranteed payouts"].map((b, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <CheckCircle className={`w-4 h-4 flex-shrink-0 ${isGold ? "text-secondary" : "text-primary"}`} />
+              <span className="font-body text-sm text-muted-foreground">{b}</span>
+            </div>
+          ))}
+        </div>
+
         <div className="mt-6">
           <Button variant={isGold ? "gold" : "cta"} className="w-full py-6" asChild>
-            <a href="https://wa.me/2349037151904" target="_blank" rel="noopener noreferrer">
+            <a href="https://dashboard.my-rider.com" target="_blank" rel="noopener noreferrer">
               Invest Now
             </a>
           </Button>
@@ -129,10 +158,15 @@ const PlansSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border-glow-green font-heading text-sm text-primary font-bold tracking-wider mb-4">
+            CHOOSE YOUR PLAN
+          </span>
           <h2 className="font-display text-3xl md:text-5xl font-black text-foreground">
             INVESTMENT <span className="text-primary text-glow-green">PLANS</span>
           </h2>
-          <p className="font-heading text-lg text-muted-foreground mt-3">Choose the plan that works for you</p>
+          <p className="font-heading text-lg text-muted-foreground mt-3 max-w-xl mx-auto">
+            Two powerful plans designed to grow your wealth consistently
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -160,6 +194,7 @@ const PlansSection = () => {
             totalReturn="₦3,600,000"
             weeklyPayout="₦34,615"
             accent="gold"
+            popular
             delay={0.2}
           />
         </div>
