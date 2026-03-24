@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import heroBike from "@/assets/hero-bike-2.jpg";
-import myRiderLogo from "@/assets/myrider-logo.png";
 import { Button } from "@/components/ui/button";
 import { Zap, ArrowRight, TrendingUp } from "lucide-react";
 
