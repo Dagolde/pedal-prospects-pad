@@ -39,7 +39,13 @@ const Index = () => {
         <p className="font-body text-sm text-muted-foreground">
           © 2026 Japamove Logistics × NovaVolt Energy × MyRider. All rights reserved.
         </p>
-        <p className="font-body text-xs text-muted-foreground/60">
+        <p className="font-body text-sm text-muted-foreground mt-2">
+          For more enquiries, call{" "}
+          <a href="tel:09037151904" className="text-primary font-bold hover:underline transition-colors">
+            09037151904
+          </a>
+        </p>
+        <p className="font-body text-xs text-muted-foreground/60 mt-1">
           <a href="https://invest.my-rider.com" className="hover:text-primary transition-colors">invest.my-rider.com</a>
         </p>
       </footer>
