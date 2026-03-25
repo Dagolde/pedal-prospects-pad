@@ -27,6 +27,7 @@ const Index = () => {
       </nav>
 
       <HeroSection />
+      <BikeShowcase />
       <PlansSection />
       <WhyInvestSection />
       <CTASection />
