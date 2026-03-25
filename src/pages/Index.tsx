@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import BikeShowcase from "@/components/BikeShowcase";
 import PlansSection from "@/components/PlansSection";
 import WhyInvestSection from "@/components/WhyInvestSection";
 import CTASection from "@/components/CTASection";
@@ -26,6 +27,7 @@ const Index = () => {
       </nav>
 
       <HeroSection />
+      <BikeShowcase />
       <PlansSection />
       <WhyInvestSection />
       <CTASection />
