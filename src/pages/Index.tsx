@@ -50,6 +50,8 @@ const Index = () => {
           <a href="https://invest.my-rider.com" className="hover:text-primary transition-colors">invest.my-rider.com</a>
         </p>
       </footer>
+
+      <WhatsAppButton />
     </div>
   );
 };
